@@ -44,7 +44,7 @@ public class UserController {
 
     @GetMapping(value = "update")
     public String update(User user) {
-        user.setUserName("whh" + "-" + LocalDateTime.now().getHour() + "-" + LocalDateTime.now().getSecond());
+//        user.setUserName("whh" + "-" + LocalDateTime.now().getHour() + "-" + LocalDateTime.now().getSecond());
         userService.update(user);
         return "yes";
     }

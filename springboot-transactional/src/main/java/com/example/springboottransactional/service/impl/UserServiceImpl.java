@@ -1,5 +1,6 @@
 package com.example.springboottransactional.service.impl;
 
+import com.example.springboottransactional.Exception.MyCallException;
 import com.example.springboottransactional.domain.User;
 import com.example.springboottransactional.mapper.UserMapper;
 import com.example.springboottransactional.service.UserService;
@@ -40,10 +41,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(noRollbackFor = NullPointerException.class)
     public void update(User user) {
         userMapper.update(user);
+
+        throw new NullPointerException();
         //异常
-        int result = 6 / 0;
+     /*   int result = 6 / 0;*/
     }
 }

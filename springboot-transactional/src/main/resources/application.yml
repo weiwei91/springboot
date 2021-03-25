@@ -16,3 +16,9 @@ mybatis:
   #sql打印配置
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#Actuator配置项
+management:
+  endpoint:
+    health:
+      show-details: always
