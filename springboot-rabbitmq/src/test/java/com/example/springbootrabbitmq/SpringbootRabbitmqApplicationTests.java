@@ -1,5 +1,6 @@
 package com.example.springbootrabbitmq;
 
+import com.example.springbootrabbitmq.service.AckSenderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpAdmin;
@@ -21,11 +22,15 @@ public class SpringbootRabbitmqApplicationTests {
     }
     @Autowired
     RabbitTemplate rabbitTemplate;
+    @Autowired
+
+    AckSenderService ackSenderService;
+
 
     @Test
     public void sendMsgs() {
-
-        rabbitTemplate.convertAndSend("exchange.fanout","","你大爷还是你大爷");
+        ackSenderService.send();
+        //rabbitTemplate.convertAndSend("exchange.fanout","","你大爷还是你大爷");
     }
 
     @Test
